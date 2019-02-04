@@ -5,7 +5,7 @@ java__version: 8
 # If the APT configuration is not detected, the role will install the default
 # Java packages for a given OS release.
 java__install: '{{ True
-                      if ((ansible_local|d() and ansible_local.apt|d() and
+                      if (ansible_local|d() and ansible_local.apt|d() and
                            ansible_local.apt.configured|d())
                       else False }}'
 
@@ -17,12 +17,12 @@ java__install_jdk: False
 #
 # List of default APT packages which should be installed for Java Runtime
 # Environment.
-java__base_packages: '{{ ([ "openjdk-" + java__version + "-jre-headless" ] if java__install|bool else [ "default-jre-headless" ])
+java__base_packages: '{{ ([ "openjdk-" + java__version|string + "-jre-headless" ] if java__install|bool else [ "default-jre-headless" ])
                         + [ "ca-certificates-java" ] }}'
 
 # List of default APT packages which should be installed for Java Development
 # Kit.
-java__jdk_packages: '{{ ([ "openjdk-" + java__version + "-jdk-headless" ]
+java__jdk_packages: '{{ ([ "openjdk-" + java__version|string + "-jdk-headless" ]
                          if java__install|bool
                          else ([ "default-jdk" ]
                                if (ansible_distribution_release in
