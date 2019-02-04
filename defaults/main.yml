@@ -1,5 +1,5 @@
 ---
-# OpenJDK version 
+# OpenJDK version
 java__version: 8
 
 # If the APT configuration is not detected, the role will install the default
@@ -47,4 +47,3 @@ java__dependent_packages: []
 
 # Set java alternatives.
 java__alternatives: ''
-
