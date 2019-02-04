@@ -6,6 +6,7 @@
         ansible_distribution == 'RedHat'
 
 - name: Include version-specific variables for Ubuntu.
+# yamllint disable-line rule:line-length
   include_vars: "{{ ansible_distribution }}-{{ ansible_distribution_version.split('.')[0] }}.yml"
   when: ansible_distribution == 'Ubuntu'
 

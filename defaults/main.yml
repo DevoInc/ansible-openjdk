@@ -17,6 +17,7 @@ java__install_jdk: False
 #
 # List of default APT packages which should be installed for Java Runtime
 # Environment.
+# yamllint disable-line rule:line-length
 java__base_packages: '{{ ([ "openjdk-" + java__version|string + "-jre-headless" ] if java__install|bool else [ "default-jre-headless" ])
                         + [ "ca-certificates-java" ] }}'
 
