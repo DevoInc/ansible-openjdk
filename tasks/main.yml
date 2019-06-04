@@ -25,6 +25,14 @@
   command: 'update-java-alternatives -s {{ java__alternatives }}'
   when: java__alternatives|d()
 
+- name: Create environment var file
+  copy:
+    dest: "/etc/profile.d/java.sh"
+    content: |
+      #{{ ansible_managed  }}
+      JAVA_HOME=$(dirname $(dirname $(readlink -f $(which java))))
+      export JAVA_HOME
+
 - name: Make sure that Ansible local facts directory exists
   file:
     path: '/etc/ansible/facts.d'
