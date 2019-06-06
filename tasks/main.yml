@@ -29,7 +29,6 @@
   copy:
     dest: "/etc/profile.d/java.sh"
     content: |
-      #{{ ansible_managed  }}
       JAVA_HOME=$(dirname $(dirname $(readlink -f $(which java))))
       export JAVA_HOME
 
