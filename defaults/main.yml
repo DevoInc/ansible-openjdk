@@ -1,5 +1,5 @@
 ---
-# OpenJDK version 
+# OpenJDK version
 java__version: 8
 
 # If the APT configuration is not detected, the role will install the default
@@ -12,12 +12,13 @@ java__install: '{{ True
 # By default the role installs only the Java Runtime Environment (JRE)
 # packages. Other Ansible roles can request installation of the compatible Java
 # Development Kit (JDK) by enabling this variable.
-java__install_jdk: False
+java__install_jdk: false
 
 #
 # List of default APT packages which should be installed for Java Runtime
 # Environment.
-java__base_packages: '{{ ([ "openjdk-" + java__version|string + "-jre-headless" ] if java__install|bool else [ "default-jre-headless" ])
+java__base_packages: '{{ ([ "openjdk-" + java__version|string + "-jre-headless"
+                        ] if java__install|bool else [ "default-jre-headless" ])
                         + [ "ca-certificates-java" ] }}'
 
 # List of default APT packages which should be installed for Java Development
@@ -47,4 +48,3 @@ java__dependent_packages: []
 
 # Set java alternatives.
 java__alternatives: ''
-
