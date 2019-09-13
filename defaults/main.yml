@@ -4,10 +4,11 @@ java__version: 8
 
 # If the APT configuration is not detected, the role will install the default
 # Java packages for a given OS release.
-java__install: '{{ True
-                      if (ansible_local|d() and ansible_local.apt|d() and
-                           ansible_local.apt.configured|d())
-                      else False }}'
+# java__install: '{{ True
+#                       if (ansible_local|d() and ansible_local.apt|d() and
+#                            ansible_local.apt.configured|d())
+#                       else False }}'
+java__install: true
 
 # By default the role installs only the Java Runtime Environment (JRE)
 # packages. Other Ansible roles can request installation of the compatible Java
