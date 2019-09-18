@@ -22,6 +22,10 @@ platforms:
     image: centos:7
     groups:
       - java-11
+  - name: ubuntu-16.04-java-11
+    image: ubuntu:16.04
+    groups:
+      - java-11
   - name: ubuntu-18.04-java-11
     image: ubuntu:18.04
     groups:
