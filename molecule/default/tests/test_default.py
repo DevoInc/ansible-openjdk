@@ -2,13 +2,9 @@ import os
 
 import testinfra.utils.ansible_runner
 
-testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
-    os.environ['MOLECULE_INVENTORY_FILE']).get_hosts('all')
 
-
-def test_hosts_file(host):
-    f = host.file('/etc/hosts')
-
-    assert f.exists
-    assert f.user == 'root'
-    assert f.group == 'root'
+def test_java_version(host):
+    ansible_vars = host.ansible.get_variables()
+    java_version = ansible_vars.get('java__version')
+    java_output = host.run('java -version')
+    assert str(java_version) + '.' in java_output.stderr
