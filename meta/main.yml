@@ -5,19 +5,15 @@ galaxy_info:
   description: 'Manage Java OpenJRE/OpenJDK environment'
   company: 'DEVO Inc.'
   license: 'GPL-3.0'
-  min_ansible_version: '2.0.0'
+  min_ansible_version: '2.7'
   platforms:
+    - name: EL
+      versions:
+        - 7
     - name: Ubuntu
       versions:
-        - precise
-        - quantal
-        - raring
-        - saucy
-        - trusty
-    - name: Debian
-      versions:
-        - wheezy
-        - jessie
+        - 16.04
+        - 18.04
   galaxy_tags:
     - java
     - development
