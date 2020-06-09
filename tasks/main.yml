@@ -42,7 +42,7 @@
   copy:
     dest: "/etc/profile.d/java.sh"
     content: |
-      JAVA_HOME=$(dirname $(dirname $(readlink -f $(which java))))
+      JAVA_HOME=$(dirname $(dirname $(readlink -f $(command -v java))))
       export JAVA_HOME
 
 - name: Make sure that Ansible local facts directory exists
