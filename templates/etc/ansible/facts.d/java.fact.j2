@@ -21,6 +21,7 @@ except subprocess.CalledProcessError:
     pass
 
 if java_stdout:
+	java_stdout = str(java_stdout)
     for line in java_stdout.split('\n'):
         if 'version' in line:
             output['version'] = line.split()[2].strip('"').split('_')[0]
