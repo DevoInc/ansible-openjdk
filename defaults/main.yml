@@ -49,3 +49,7 @@ java__dependent_packages: []
 
 # Set java alternatives.
 java__alternatives: ''
+
+# enable TLSv1
+java__enable_TLSv1: false
+java__java_security_conf_path: /etc/java-{{ java__version }}-openjdk/security/java.security
