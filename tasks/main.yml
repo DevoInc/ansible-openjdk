@@ -41,8 +41,8 @@
 - name: Enable TLSv1
   lineinfile:
     path: "{{ java__java_security_conf_path }}"
-    regexp: '^, TLSv1, TLSv1.1,'
-    line: ','
+    regexp: '^jdk.tls.disabledAlgorithms=SSLv3, TLSv1, TLSv1.1, RC4, DES, MD5withRSA,'
+    line: 'jdk.tls.disabledAlgorithms=SSLv3, RC4, DES, MD5withRSA,'
   when : java__enable_TLSv1
 
 - name: Create environment var file
