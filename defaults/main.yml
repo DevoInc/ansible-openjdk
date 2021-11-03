@@ -52,4 +52,6 @@ java__alternatives: ''
 
 # enable TLSv1
 java__enable_TLSv1: false
-java__java_security_conf_path: /etc/java-{{ java__version }}-openjdk/security/java.security
+java__java_security_conf_path: '/etc/java-{{ java__version }}-openjdk/security/java.security'
+java__security_conf_jdk_tls_disabled_algorithms_first_line_default: '^jdk.tls.disabledAlgorithms=SSLv3, TLSv1, TLSv1.1, RC4, DES, MD5withRSA, \'
+java__security_conf_jdk_tls_disabled_algorithms_first_line_to_enable_TLSv1: 'jdk.tls.disabledAlgorithms=SSLv3, RC4, DES, MD5withRSA, \'
