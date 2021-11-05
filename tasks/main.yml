@@ -38,6 +38,14 @@
   command: 'update-java-alternatives -s {{ java__alternatives }}'
   when: java__alternatives|d()
 
+- name: Enable TLSv1
+  lineinfile:
+    path: "{{ java__java_security_conf_path }}"
+    regexp: "{{ java__security_conf_jdk_tls_disabled_algorithms_first_line_default  }}"
+    line: "{{ java__security_conf_jdk_tls_disabled_algorithms_first_line_to_enable_TLSv1 }}"
+    backup: "{{ java__security_conf_enable_backup }}"
+  when : java__enable_TLSv1
+
 - name: Create environment var file
   copy:
     dest: "/etc/profile.d/java.sh"
