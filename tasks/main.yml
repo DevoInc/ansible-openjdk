@@ -5,6 +5,13 @@
         ansible_distribution == 'Red Hat Enterprise Linux' or
         ansible_distribution == 'RedHat'
 
+- name: purgue old oracle-java
+  apt:
+    name: oracle-java*
+    state: absent
+    purge: yes
+  when: ansible_distribution == 'Ubuntu'
+
 - name: Add openjdk11 repository and signing key for Ubuntu 16.04
   block:
     - name: Add openjdk11 repository for Ubuntu 16.04
